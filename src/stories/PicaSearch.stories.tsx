@@ -11,5 +11,5 @@ const Template: Story<PicaSearchProps> = (args) => <PicaSearch {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  pixabayApiUrl: '/api?key=13417145-d0c367819415b077de5e950e3',
+  pixabayApiUrl: `${process.env.api}?key=13417145-d0c367819415b077de5e950e3`,
 };
