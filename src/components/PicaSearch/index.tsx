@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { TextField, Paper, Fade, Dialog } from '@material-ui/core';
+import { TextField, Paper, Dialog } from '@material-ui/core';
 import { fromFetch } from 'rxjs/fetch';
 import { Thumb } from '../Thumb';
 import { switchMapTo } from 'rxjs/operators';
 import { timer } from 'rxjs';
 import { makeStyles } from '@material-ui/core/styles';
 
-const DEBOUNCE_TIME = 2000;
+const DEBOUNCE_TIME = 1500;
 
 export interface PicaSearchProps {
   pixabayApiUrl: string;
@@ -98,16 +98,15 @@ export const PicaSearch: React.FC<PicaSearchProps> = (props) => {
         {hits.length
           ? hits.map((hit) => {
               return (
-                <Fade key={hit.id} appear={true}>
-                  <Thumb
-                    url={hit.previewURL}
-                    height={200}
-                    width={200}
-                    likes={hit.likes}
-                    favorites={hit.favorites}
-                    onClick={() => handleThumbClick(hit)}
-                  />
-                </Fade>
+                <Thumb
+                  key={hit.id}
+                  url={hit.previewURL}
+                  height={200}
+                  width={200}
+                  likes={hit.likes}
+                  favorites={hit.favorites}
+                  onClick={() => handleThumbClick(hit)}
+                />
               );
             })
           : 'No items to show.'}

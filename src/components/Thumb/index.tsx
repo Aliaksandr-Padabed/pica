@@ -14,8 +14,8 @@ export const Thumb: React.FC<ThumbProps> = (props) => {
   const useStyles = makeStyles({
     root: {
       margin: '15px',
-      width: (props) => `${props.width}px`,
-      height: (props) => `${props.height}px`,
+      width: (props: ThumbProps) => `${props.width}px`,
+      height: (props: ThumbProps) => `${props.height}px`,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
